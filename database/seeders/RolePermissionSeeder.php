@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -40,7 +40,7 @@ class RolePermissionSeeder extends Seeder
             'occupation' => 'superadmin',
             'experience' => 50,
             'avatar' => 'images/default-avatar.png',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
         ]);
 
         $user->assignRole($superAdminRole);
